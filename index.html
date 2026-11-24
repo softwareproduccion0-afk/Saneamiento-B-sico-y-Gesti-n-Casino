@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saneamiento Básico - Gestión Casino - Falcon Farms</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Librerías para Excel y Descarga (SheetJS + FileSaver) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white; padding: 0; margin: 0; }
+      .page-break { page-break-before: always; }
+    }
+    body {
+      overscroll-behavior-y: contain;
+    }
+    canvas { touch-action: none; background: #fff; }
+  </style>
+</head>
+<body class="bg-slate-200 p-2 md:p-6 font-sans text-[10px] text-slate-900 leading-tight">
+
+  <!-- BARRA DE CONTROL SUPERIOR -->
+  <div class="max-w-5xl mx-auto mb-4 flex justify-between items-center no-print">
+    <div class="font-bold text-sm text-slate-700">Inspección Digital - Saneamiento Básico y Gestión Casino</div>
+    <button type="button" onclick="limpiarTodoElFormulario()" class="bg-red-600 hover:bg-red-700 text-white font-bold px-3 py-1.5 rounded text-xs">
+      Nueva Inspección (Limpiar)
+    </button>
+  </div>
+
+  <div class="max-w-5xl mx-auto space-y-6">
+
+    <!-- ==========================================
+         FORMATO: SANEAMIENTO BÁSICO - GESTIÓN CASINO
+    ========================================== -->
+    <div class="bg-white p-4 border border-black space-y-2">
+
+      <!-- Encabezado Oficial con Logo -->
+      <div class="border border-black grid grid-cols-12 text-center items-center">
+        <div class="col-span-3 border-r border-black p-1 flex flex-col items-center justify-center">
+          <img src="assets/logo.png" alt="Logo Falcon Farms" class="max-h-12 object-contain mb-1">
+          <div class="text-[7px] text-slate-600">Falcon Farms de Colombia S.A.<br>Finca Torremolinos</div>
+        </div>
+        <div class="col-span-7 border-r border-black p-2 font-bold text-center">
+          <p class="text-xs uppercase">FALCON FARMS DE COLOMBIA S.A</p>
+          <p class="text-xs mt-1 uppercase">SANEAMIENTO BASICO - GESTION CASINO</p>
+        </div>
+        <div class="col-span-2 text-[8px] p-1 text-left space-y-1">
+          <div class="border-b border-black pb-0.5 font-bold">Control Documento</div>
+          <div class="border-b border-black pb-0.5">Mes: <input type="month" id="mes_inspeccion" class="border w-full text-[8px] p-0.5 mt-0.5"></div>
+          <div>Página 1 de 1</div>
+        </div>
+      </div>
+      <!-- OBJETIVO -->
+      <div class="border border-black">
+        <div class="bg-slate-200 font-bold text-center p-0.5 border-b border-black text-[9px] uppercase">OBJETIVO</div>
+        <div class="p-1.5 text-[8.5px] leading-snug">
+          Contar con una evaluación permanente de los servicios del casino en el suministro de alimentos a nivel de calidad, sanidad, disponibilidad, y buenas prácticas de manufactura que garanticen la seguridad alimentaria a los trabajadores de FALCON FARMS DE COLOMBIA SA - Finca Torremolinos
+        </div>
+      </div>
+
+      <!-- OBJETIVOS ESPECÍFICOS -->
+      <div class="border border-black">
+        <div class="bg-slate-200 font-bold text-center p-0.5 border-b border-black text-[9px] uppercase">OBJETIVOS ESPECÍFICOS</div>
+        <div class="p-1.5 text-[8.5px] leading-snug space-y-0.5">
+          <p>Contar con información oportuna para la mejora continua en aspectos como: aseo, atención al cliente, disponibilidad de productos, capacidad instalada etc;</p>
+          <p>Llevar indicadores de Gestión diarios de los resultados según los hallazgos de la inspección;</p>
+          <p>Dar a conocer al contratista el resultado de indicadores.</p>
+        </div>
+      </div>
+
+      <!-- ALCANCE -->
+      <div class="border border-black">
+        <div class="bg-slate-200 font-bold text-center p-0.5 border-b border-black text-[9px] uppercase">ALCANCE</div>
+        <div class="p-1.5 text-[8.5px] leading-snug">
+          Aplica al servicio de Casino recibido por el contratista y al comportamiento del personal en el uso y cuidado de las instalaciones.
+        </div>
+      </div>
+      <!-- TABLA PRINCIPAL DE ACTIVIDADES (PARTE 1) -->
+      <div class="border border-black overflow-x-auto">
+        <table class="w-full border-collapse border border-black text-[8px]">
+          <thead>
+            <tr class="bg-slate-200 font-bold text-center">
+              <th class="border border-black p-1 text-left">ACTIVIDADES</th>
+              <th class="border border-black p-1 w-14">ITEM</th>
+              <th class="border border-black p-1 w-20">RESPONSABLE</th>
+              <th class="border border-black p-1 w-14">CUMPLE</th>
+              <th class="border border-black p-1 w-16">NO CUMPLE</th>
+              <th class="border border-black p-1 w-16">MENSUAL</th>
+              <th class="border border-black p-1 w-40">OBSERVACIONES</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-black p-1">No se usan joyas en la manipulación de los alimentos que los puedan contaminar</td>
+              <td class="border border-black p-1 text-center font-bold">BPM</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="act_1" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="act_1" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+            <tr>
+              <td class="border border-black p-1">Se tienen y se usan los implementos necesarios para lavado de manos y uñas (dispensador de jabón, desinfectante, cepillos individuales)</td>
+              <td class="border border-black p-1 text-center font-bold">BPM</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="act_2" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="act_2" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+            <tr>
+              <td class="border border-black p-1">Las verduras y tubérculos se encuentran separados por cubículos, limpios y ordenados</td>
+              <td class="border border-black p-1 text-center font-bold">BPM</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="act_3" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="act_3" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+            <tr>
+              <td class="border border-black p-1">Cabello totalmente recogido, y uso adecuado de cofia y tapabocas</td>
+              <td class="border border-black p-1 text-center font-bold">BPM</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="act_4" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="act_4" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+            <tr>
+              <td class="border border-black p-1">No se deben tomar los alimentos con las manos directamente</td>
+              <td class="border border-black p-1 text-center font-bold">BPM</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="act_5" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="act_5" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+            <tr>
+              <td class="border border-black p-1">El personal está en óptimas condiciones de salud</td>
+              <td class="border border-black p-1 text-center font-bold">BPM</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="act_6" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="act_6" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+            <tr>
+              <td class="border border-black p-1">Utensilios para preparar los alimentos son de material lavable, se encuentran limpios y en buen estado</td>
+              <td class="border border-black p-1 text-center font-bold">BPM</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="act_7" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="act_7" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+            <tr>
+              <td class="border border-black p-1">Se aplican los protocolos de limpieza y desinfección de áreas, implementos y alimentos, según las fórmulas de solución de hipoclorito</td>
+              <td class="border border-black p-1 text-center font-bold">BPM</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="act_8" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="act_8" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+<tr>
+              <td class="border border-black p-1">Se cuenta con la señalización adecuada, rutas de evacuación, extintor, áreas de servicio</td>
+              <td class="border border-black p-1 text-center font-bold">BPM</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="act_9" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="act_9" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+            <tr>
+              <td class="border border-black p-1">Los trabajadores usan todos los elementos de protección personal de acuerdo a la labor</td>
+              <td class="border border-black p-1 text-center font-bold">BPM</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="act_10" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="act_10" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+            <tr>
+              <td class="border border-black p-1">No se manipulan alimentos y dinero al mismo tiempo</td>
+              <td class="border border-black p-1 text-center font-bold">BPM</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="act_11" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="act_11" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+            <tr>
+              <td class="border border-black p-1">Se toman muestras de los alimentos a diario y se conservan por 3 días rotulados, con fecha, refrigerados, cubiertos o protegidos de cualquier contaminación con otros alimentos</td>
+              <td class="border border-black p-1 text-center font-bold">BPM</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="act_12" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="act_12" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+            <tr>
+              <td class="border border-black p-1">El comedor, mesas y sillas están en condiciones de aseo permanentemente</td>
+              <td class="border border-black p-1 text-center font-bold">BPM</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="act_13" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="act_13" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+            <tr>
+              <td class="border border-black p-1">Se encuentran alimentos vencidos o obsoletos en el lugar de almacenamiento</td>
+              <td class="border border-black p-1 text-center font-bold">BPM</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="act_14" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="act_14" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+            <tr>
+              <td class="border border-black p-1">Los alimentos son refrigerados de acuerdo a su clasificación</td>
+              <td class="border border-black p-1 text-center font-bold">BPM</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="act_15" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="act_15" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+            <tr>
+              <td class="border border-black p-1">Manejo de residuos de acuerdo a clasificación Aprovechables y no aprovechables</td>
+              <td class="border border-black p-1 text-center font-bold">BPM</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="act_16" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="act_16" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+<!-- SECCIÓN: CUMPLIMIENTO BPM -->
+      <div class="border border-black overflow-x-auto">
+        <div class="bg-slate-200 font-bold text-center p-0.5 border-b border-black text-[9px] uppercase">CUMPLIMIENTO BPM</div>
+        <table class="w-full border-collapse border border-black text-[8px]">
+          <thead>
+            <tr class="bg-slate-200 font-bold text-center">
+              <th class="border border-black p-1 text-left" rowspan="2">ACTIVIDADES</th>
+              <th class="border border-black p-1 w-14" rowspan="2">ITEM</th>
+              <th class="border border-black p-1 w-20" rowspan="2">RESPONSABLE</th>
+              <th class="border border-black p-0.5" colspan="2">MENSUAL</th>
+              <th class="border border-black p-1 w-40" rowspan="2">OBSERVACIONES</th>
+            </tr>
+            <tr class="bg-slate-100 font-bold text-center">
+              <th class="border border-black p-1 w-14">CUMPLE</th>
+              <th class="border border-black p-1 w-16">NO CUMPLE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-black p-1">El personal cuenta con la afiliación al sistema de seguridad social al día (EPS, AFP, ARL)</td>
+              <td class="border border-black p-1 text-center font-bold">LEGAL</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="bpm_1" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="bpm_1" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+            <tr>
+              <td class="border border-black p-1">El personal que presta los servicios cuentan con el curso y el concepto médico de manipulación de alimentos VIGENTE</td>
+              <td class="border border-black p-1 text-center font-bold">LEGAL</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="bpm_2" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="bpm_2" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+<!-- SECCIÓN: CUMPLIMIENTO ASPECTOS LEGALES -->
+      <div class="border border-black overflow-x-auto">
+        <div class="bg-slate-200 font-bold text-center p-0.5 border-b border-black text-[9px] uppercase">CUMPLIMIENTO ASPECTOS LEGALES</div>
+        <table class="w-full border-collapse border border-black text-[8px]">
+          <thead>
+            <tr class="bg-slate-100 font-bold text-center">
+              <th class="border border-black p-1 text-left">ACTIVIDADES</th>
+              <th class="border border-black p-1 w-14">ITEM</th>
+              <th class="border border-black p-1 w-20">RESPONSABLE</th>
+              <th class="border border-black p-1 w-14">CUMPLE</th>
+              <th class="border border-black p-1 w-16">NO CUMPLE</th>
+              <th class="border border-black p-1 w-16">MENSUAL</th>
+              <th class="border border-black p-1 w-40">OBSERVACIONES</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-black p-1">La atención a los usuarios es eficiente, cordial y oportuna</td>
+              <td class="border border-black p-1 text-center font-bold">SERVICIO</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="leg_1" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="leg_1" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+            <tr>
+              <td class="border border-black p-1">Se cuenta con un listado de los productos con sus respectivos precios</td>
+              <td class="border border-black p-1 text-center font-bold">SERVICIO</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="leg_2" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="leg_2" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+            <tr>
+              <td class="border border-black p-1">El menú se encuentra publicado y se cumple a diario</td>
+              <td class="border border-black p-1 text-center font-bold">SERVICIO</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="leg_3" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="leg_3" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+            <tr>
+              <td class="border border-black p-1">Cubiertos, loza, bandejas, mesa de servicio, limpios, secos, no deteriorados, desportillados o agrietados</td>
+              <td class="border border-black p-1 text-center font-bold">SERVICIO</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="leg_4" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="leg_4" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+            <tr>
+              <td class="border border-black p-1">Se cuenta con surtido de snack, confitería, bebidas, frutas etc. disponibles y con fecha de consumo vigente</td>
+              <td class="border border-black p-1 text-center font-bold">SERVICIO</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="leg_5" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="leg_5" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+            <tr>
+              <td class="border border-black p-1">Uso de dotación completa, limpia a diario</td>
+              <td class="border border-black p-1 text-center font-bold">LEGAL</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="leg_6" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="leg_6" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+            <tr>
+              <td class="border border-black p-1">El personal conoce y cumple las normas de SST</td>
+              <td class="border border-black p-1 text-center font-bold">LEGAL</td>
+              <td class="border border-black p-1 text-center">CONTRATISTA</td>
+              <td class="border border-black text-center"><input type="radio" name="leg_7" value="CUMPLE"></td>
+              <td class="border border-black text-center"><input type="radio" name="leg_7" value="NO CUMPLE"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
+              <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+<!-- FIRMAS DE INSPECCIÓN Y FECHA -->
+      <div class="border border-black grid grid-cols-12 text-[8px] mt-2">
+        <div class="col-span-5 border-r border-black p-1.5 text-center">
+          <p class="font-bold uppercase mb-1">NOMBRE Y FIRMA PERSONA QUE REALIZA LA INSPECCION</p>
+          <input type="text" id="nombre_inspector" placeholder="Nombre completo de quien realiza la inspección" class="w-full border-b border-black text-center mb-1.5 px-1 py-0.5 focus:outline-none">
+          <canvas id="f_inspector" width="240" height="45" class="border border-slate-400 bg-white cursor-crosshair mx-auto block"></canvas>
+          <button type="button" onclick="borrarFirma('f_inspector')" class="text-[7px] text-red-600 underline no-print mt-1">Borrar firma</button>
+        </div>
+
+        <div class="col-span-4 border-r border-black p-1.5 text-center">
+          <p class="font-bold uppercase mb-1">FIRMA DE QUIEN RECIBE LA INSPECCION</p>
+          <input type="text" id="nombre_recibe" placeholder="Nombre completo de quien recibe" class="w-full border-b border-black text-center mb-1.5 px-1 py-0.5 focus:outline-none">
+          <canvas id="f_recibe" width="200" height="45" class="border border-slate-400 bg-white cursor-crosshair mx-auto block"></canvas>
+          <button type="button" onclick="borrarFirma('f_recibe')" class="text-[7px] text-red-600 underline no-print mt-1">Borrar firma</button>
+        </div>
+
+        <div class="col-span-3 p-1.5 flex flex-col justify-between">
+          <p class="font-bold uppercase text-center">FECHA</p>
+          <div class="my-auto">
+            <input type="date" id="fecha_inspeccion" class="border border-black w-full p-1 text-[9px] focus:outline-none">
+          </div>
+          <div class="text-[7px] text-slate-500 text-center">Fecha de diligenciamiento</div>
+        </div>
+      </div>
+      <!-- REGISTRO FOTOGRÁFICO / EVIDENCIA -->
+      <div class="border border-black mt-2">
+        <div class="bg-slate-200 font-bold text-center p-0.5 border-b border-black text-[9px] uppercase">
+          REGISTRO FOTOGRÁFICO / EVIDENCIA DE LA INSPECCIÓN
+        </div>
+        <div class="p-2 space-y-2">
+          <div class="flex flex-wrap items-center gap-2 no-print">
+            <label for="input_fotos" class="bg-slate-800 hover:bg-slate-900 text-white font-bold px-3 py-1.5 rounded cursor-pointer inline-flex items-center gap-1.5 text-[10px]">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+              Tomar Foto / Adjuntar Evidencia
+            </label>
+            <input type="file" id="input_fotos" accept="image/*" capture="environment" multiple class="hidden" onchange="agregarFotos(event)">
+            <span class="text-[8px] text-slate-500">Puede tomar o seleccionar varias fotos (se ajustan automáticamente al imprimir).</span>
+          </div>
+
+          <div id="galeria_fotos" class="grid grid-cols-2 md:grid-cols-3 gap-2 pt-1"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BOTÓN FINAL DE IMPRESIÓN / PDF -->
+    <div class="flex justify-end pb-6 no-print">
+      <button type="button" onclick="window.print()" class="bg-slate-800 hover:bg-slate-900 text-white font-bold px-6 py-3 rounded shadow-lg flex items-center gap-2 text-xs">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+        Imprimir / Guardar PDF
+      </button>
+    </div>
+
+  </div>
+  <script>
+    const STORAGE_KEY = 'saneamiento_casino_falcon_v1';
+    let hayCambiosSinGuardar = false;
+
+    // 1. ALERTA SI INTENTAN RECARGAR O CERRAR LA PÁGINA
+    window.addEventListener('beforeunload', function (e) {
+      if (hayCambiosSinGuardar) {
+        e.preventDefault();
+        e.returnValue = '';
+      }
+    });
+
+    // 2. MANEJO DE FOTOS
+    function agregarFotos(event) {
+      const files = event.target.files;
+      const galeria = document.getElementById('galeria_fotos');
+      if (!files || !galeria) return;
+
+      Array.from(files).forEach(file => {
+        if (!file.type.startsWith('image/')) return;
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const card = document.createElement('div');
+          card.className = 'border border-black p-1 bg-slate-50 flex flex-col items-center relative break-inside-avoid';
+          card.innerHTML = `
+            <img src="${e.target.result}" class="w-full h-36 object-contain bg-white border border-slate-300">
+            <input type="text" placeholder="Descripción de la foto (opcional)" class="w-full border-b border-black text-[8px] mt-1 px-1 bg-transparent focus:outline-none">
+            <button type="button" onclick="if(confirm('¿Eliminar esta foto?')) { this.parentElement.remove(); guardarBorrador(); }" class="text-[7px] text-red-600 underline mt-1 no-print">Eliminar foto</button>
+          `;
+          galeria.appendChild(card);
+          guardarBorrador();
+        };
+        reader.readAsDataURL(file);
+      });
+      event.target.value = '';
+    }
+
+    // 3. LIENZOS DE FIRMA
+    function getCanvasIds() {
+      return ['f_inspector', 'f_recibe'];
+    }
+
+    function initCanvas() {
+      getCanvasIds().forEach(id => {
+        const cvs = document.getElementById(id);
+        if(!cvs) return;
+        const ctx = cvs.getContext('2d');
+        let drawing = false;
+
+        function start(e) {
+          drawing = true;
+          ctx.beginPath();
+          const p = getPos(e, cvs);
+          ctx.moveTo(p.x, p.y);
+        }
+        function move(e) {
+          if(!drawing) return;
+          e.preventDefault();
+          const p = getPos(e, cvs);
+          ctx.lineTo(p.x, p.y);
+          ctx.lineWidth = 1.5;
+          ctx.strokeStyle = '#000';
+          ctx.stroke();
+        }
+        function stop() {
+          if (drawing) {
+            drawing = false;
+            guardarBorrador();
+          }
+        }
+
+        function getPos(e, c) {
+          const r = c.getBoundingClientRect();
+          const cx = e.touches ? e.touches[0].clientX : e.clientX;
+          const cy = e.touches ? e.touches[0].clientY : e.clientY;
+          return { x: (cx - r.left) * (c.width / r.width), y: (cy - r.top) * (c.height / r.height) };
+        }
+
+        cvs.addEventListener('mousedown', start);
+        cvs.addEventListener('mousemove', move);
+        cvs.addEventListener('mouseup', stop);
+        cvs.addEventListener('touchstart', start, {passive: false});
+        cvs.addEventListener('touchmove', move, {passive: false});
+        cvs.addEventListener('touchend', stop);
+      });
+    }
+
+    function borrarFirma(id) {
+      if (!confirm('¿Seguro que deseas borrar esta firma?')) return;
+      const c = document.getElementById(id);
+      if(c) {
+        c.getContext('2d').clearRect(0, 0, c.width, c.height);
+        guardarBorrador();
+      }
+    }
+// 4. SISTEMA DE AUTOGUARDADO Y RECUPERACIÓN
+    function guardarBorrador() {
+      hayCambiosSinGuardar = true;
+      const data = {
+        inputs: [],
+        firmas: {},
+        htmlFotos: document.getElementById('galeria_fotos').innerHTML
+      };
+
+      document.querySelectorAll('input:not([type="file"]), textarea').forEach((el, idx) => {
+        if (el.type === 'radio' || el.type === 'checkbox') {
+          data.inputs.push({ idx, checked: el.checked });
+        } else {
+          data.inputs.push({ idx, value: el.value });
+        }
+      });
+
+      getCanvasIds().forEach(id => {
+        const cvs = document.getElementById(id);
+        if (cvs) data.firmas[id] = cvs.toDataURL();
+      });
+
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      } catch (e) {
+        console.warn('No se pudo guardar en localStorage:', e);
+      }
+    }
+
+    function restaurarBorrador() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+
+      try {
+        const data = JSON.parse(raw);
+
+        const allInputs = document.querySelectorAll('input:not([type="file"]), textarea');
+        data.inputs.forEach(item => {
+          const el = allInputs[item.idx];
+          if (!el) return;
+          if (el.type === 'radio' || el.type === 'checkbox') {
+            el.checked = item.checked;
+          } else {
+            el.value = item.value;
+          }
+        });
+
+        if (data.htmlFotos) {
+          document.getElementById('galeria_fotos').innerHTML = data.htmlFotos;
+        }
+
+        Object.keys(data.firmas).forEach(id => {
+          const cvs = document.getElementById(id);
+          if (cvs && data.firmas[id]) {
+            const img = new Image();
+            img.onload = () => cvs.getContext('2d').drawImage(img, 0, 0);
+            img.src = data.firmas[id];
+          }
+        });
+
+        hayCambiosSinGuardar = true;
+      } catch (e) {
+        console.error('Error restaurando borrador:', e);
+      }
+    }
+
+    function limpiarTodoElFormulario() {
+      if (!confirm('¿Estás seguro de borrar TODOS los datos y firmas para iniciar una inspección nueva?')) return;
+      localStorage.removeItem(STORAGE_KEY);
+      hayCambiosSinGuardar = false;
+      location.reload();
+    }
+
+    window.onload = function() {
+      initCanvas();
+      restaurarBorrador();
+
+      document.addEventListener('input', guardarBorrador);
+      document.addEventListener('change', guardarBorrador);
+    };
+  </script>
+</body>
+</html>
