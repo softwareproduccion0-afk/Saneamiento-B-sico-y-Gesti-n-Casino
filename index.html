@@ -78,18 +78,20 @@
           Aplica al servicio de Casino recibido por el contratista y al comportamiento del personal en el uso y cuidado de las instalaciones.
         </div>
       </div>
-      <!-- TABLA PRINCIPAL DE ACTIVIDADES (PARTE 1) -->
+<!-- TABLA PRINCIPAL DE ACTIVIDADES -->
       <div class="border border-black overflow-x-auto">
         <table class="w-full border-collapse border border-black text-[8px]">
           <thead>
             <tr class="bg-slate-200 font-bold text-center">
-              <th class="border border-black p-1 text-left">ACTIVIDADES</th>
-              <th class="border border-black p-1 w-14">ITEM</th>
-              <th class="border border-black p-1 w-20">RESPONSABLE</th>
+              <th class="border border-black p-1 text-left" rowspan="2">ACTIVIDADES</th>
+              <th class="border border-black p-1 w-14" rowspan="2">ITEM</th>
+              <th class="border border-black p-1 w-20" rowspan="2">RESPONSABLE</th>
+              <th class="border border-black p-0.5" colspan="2">MENSUAL</th>
+              <th class="border border-black p-1 w-40" rowspan="2">OBSERVACIONES</th>
+            </tr>
+            <tr class="bg-slate-100 font-bold text-center">
               <th class="border border-black p-1 w-14">CUMPLE</th>
               <th class="border border-black p-1 w-16">NO CUMPLE</th>
-              <th class="border border-black p-1 w-16">MENSUAL</th>
-              <th class="border border-black p-1 w-40">OBSERVACIONES</th>
             </tr>
           </thead>
           <tbody>
@@ -99,7 +101,6 @@
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="act_1" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="act_1" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
             <tr>
@@ -108,7 +109,6 @@
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="act_2" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="act_2" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
             <tr>
@@ -117,7 +117,6 @@
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="act_3" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="act_3" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
             <tr>
@@ -126,7 +125,6 @@
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="act_4" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="act_4" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
             <tr>
@@ -135,7 +133,6 @@
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="act_5" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="act_5" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
             <tr>
@@ -144,7 +141,6 @@
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="act_6" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="act_6" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
             <tr>
@@ -153,7 +149,6 @@
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="act_7" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="act_7" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
             <tr>
@@ -162,16 +157,14 @@
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="act_8" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="act_8" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
-<tr>
+            <tr>
               <td class="border border-black p-1">Se cuenta con la señalización adecuada, rutas de evacuación, extintor, áreas de servicio</td>
               <td class="border border-black p-1 text-center font-bold">BPM</td>
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="act_9" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="act_9" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
             <tr>
@@ -180,7 +173,6 @@
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="act_10" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="act_10" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
             <tr>
@@ -189,7 +181,6 @@
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="act_11" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="act_11" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
             <tr>
@@ -198,7 +189,6 @@
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="act_12" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="act_12" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
             <tr>
@@ -207,7 +197,6 @@
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="act_13" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="act_13" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
             <tr>
@@ -216,7 +205,6 @@
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="act_14" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="act_14" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
             <tr>
@@ -225,7 +213,6 @@
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="act_15" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="act_15" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
             <tr>
@@ -234,13 +221,13 @@
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="act_16" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="act_16" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
           </tbody>
         </table>
       </div>
-<!-- SECCIÓN: CUMPLIMIENTO BPM -->
+
+      <!-- SECCIÓN: CUMPLIMIENTO BPM -->
       <div class="border border-black overflow-x-auto">
         <div class="bg-slate-200 font-bold text-center p-0.5 border-b border-black text-[9px] uppercase">CUMPLIMIENTO BPM</div>
         <table class="w-full border-collapse border border-black text-[8px]">
@@ -264,7 +251,6 @@
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="bpm_1" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="bpm_1" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
             <tr>
@@ -273,25 +259,27 @@
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="bpm_2" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="bpm_2" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
           </tbody>
         </table>
       </div>
-<!-- SECCIÓN: CUMPLIMIENTO ASPECTOS LEGALES -->
+
+      <!-- SECCIÓN: CUMPLIMIENTO ASPECTOS LEGALES -->
       <div class="border border-black overflow-x-auto">
         <div class="bg-slate-200 font-bold text-center p-0.5 border-b border-black text-[9px] uppercase">CUMPLIMIENTO ASPECTOS LEGALES</div>
         <table class="w-full border-collapse border border-black text-[8px]">
           <thead>
+            <tr class="bg-slate-200 font-bold text-center">
+              <th class="border border-black p-1 text-left" rowspan="2">ACTIVIDADES</th>
+              <th class="border border-black p-1 w-14" rowspan="2">ITEM</th>
+              <th class="border border-black p-1 w-20" rowspan="2">RESPONSABLE</th>
+              <th class="border border-black p-0.5" colspan="2">MENSUAL</th>
+              <th class="border border-black p-1 w-40" rowspan="2">OBSERVACIONES</th>
+            </tr>
             <tr class="bg-slate-100 font-bold text-center">
-              <th class="border border-black p-1 text-left">ACTIVIDADES</th>
-              <th class="border border-black p-1 w-14">ITEM</th>
-              <th class="border border-black p-1 w-20">RESPONSABLE</th>
               <th class="border border-black p-1 w-14">CUMPLE</th>
               <th class="border border-black p-1 w-16">NO CUMPLE</th>
-              <th class="border border-black p-1 w-16">MENSUAL</th>
-              <th class="border border-black p-1 w-40">OBSERVACIONES</th>
             </tr>
           </thead>
           <tbody>
@@ -301,7 +289,6 @@
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="leg_1" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="leg_1" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
             <tr>
@@ -310,7 +297,6 @@
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="leg_2" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="leg_2" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
             <tr>
@@ -319,7 +305,6 @@
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="leg_3" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="leg_3" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
             <tr>
@@ -328,7 +313,6 @@
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="leg_4" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="leg_4" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
             <tr>
@@ -337,7 +321,6 @@
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="leg_5" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="leg_5" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
             <tr>
@@ -346,7 +329,6 @@
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="leg_6" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="leg_6" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
             <tr>
@@ -355,7 +337,6 @@
               <td class="border border-black p-1 text-center">CONTRATISTA</td>
               <td class="border border-black text-center"><input type="radio" name="leg_7" value="CUMPLE"></td>
               <td class="border border-black text-center"><input type="radio" name="leg_7" value="NO CUMPLE"></td>
-              <td class="border border-black p-0.5"><input type="text" class="w-full border-b text-center focus:outline-none"></td>
               <td class="border border-black p-0.5"><input type="text" class="w-full border-b focus:outline-none"></td>
             </tr>
           </tbody>
@@ -419,7 +400,7 @@
 
   </div>
   <script>
-    const STORAGE_KEY = 'saneamiento_casino_falcon_v1';
+    const STORAGE_KEY = 'saneamiento_casino_falcon_v2';
     let hayCambiosSinGuardar = false;
 
     // 1. ALERTA SI INTENTAN RECARGAR O CERRAR LA PÁGINA
@@ -513,7 +494,8 @@
         guardarBorrador();
       }
     }
-// 4. SISTEMA DE AUTOGUARDADO Y RECUPERACIÓN
+
+    // 4. SISTEMA DE AUTOGUARDADO Y RECUPERACIÓN
     function guardarBorrador() {
       hayCambiosSinGuardar = true;
       const data = {
@@ -524,9 +506,9 @@
 
       document.querySelectorAll('input:not([type="file"]), textarea').forEach((el, idx) => {
         if (el.type === 'radio' || el.type === 'checkbox') {
-          data.inputs.push({ idx, checked: el.checked });
+          data.inputs.push({ idx, checked: Boolean(el.checked) });
         } else {
-          data.inputs.push({ idx, value: el.value });
+          data.inputs.push({ idx, value: el.value || '' });
         }
       });
 
@@ -550,13 +532,14 @@
         const data = JSON.parse(raw);
 
         const allInputs = document.querySelectorAll('input:not([type="file"]), textarea');
-        data.inputs.forEach(item => {
+        (data.inputs || []).forEach(item => {
           const el = allInputs[item.idx];
           if (!el) return;
           if (el.type === 'radio' || el.type === 'checkbox') {
-            el.checked = item.checked;
+            el.checked = Boolean(item.checked);
           } else {
-            el.value = item.value;
+            const val = item.value;
+            el.value = (val === undefined || val === null || val === 'undefined') ? '' : String(val);
           }
         });
 
@@ -564,7 +547,7 @@
           document.getElementById('galeria_fotos').innerHTML = data.htmlFotos;
         }
 
-        Object.keys(data.firmas).forEach(id => {
+        Object.keys(data.firmas || {}).forEach(id => {
           const cvs = document.getElementById(id);
           if (cvs && data.firmas[id]) {
             const img = new Image();
@@ -572,8 +555,6 @@
             img.src = data.firmas[id];
           }
         });
-
-        hayCambiosSinGuardar = true;
       } catch (e) {
         console.error('Error restaurando borrador:', e);
       }
@@ -593,6 +574,8 @@
       document.addEventListener('input', guardarBorrador);
       document.addEventListener('change', guardarBorrador);
     };
+  </script>
+
   </script>
 </body>
 </html>
